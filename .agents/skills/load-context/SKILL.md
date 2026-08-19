@@ -25,6 +25,7 @@ Use `assets/progress-template.md` as the starting structure — it mirrors the p
 ## Step 3 — Summarize before proceeding
 
 Before starting any new work, give a short status summary:
+
 - Which phase and task the project is currently on
 - What was last completed
 - What's next per `master-plan.md`
@@ -34,6 +35,7 @@ Before starting any new work, give a short status summary:
 ## Step 4 — Carry the standing rules forward
 
 For the rest of the session:
+
 - Stay within FR-tagged scope per `master-plan.md` Section 2 unless the user explicitly asks to expand it
 - Apply `agent-verification-protocol.md` before implementing anything involving a library/framework/service not already logged as verified in `compatibility-log.md`
 - Update `progress.md` as tasks complete — check off items, add brief notes on decisions made mid-task that aren't already captured in the master plan (e.g. a specific field name chosen, a workaround applied). Keep entries short; this file is a status tracker, not a diary.

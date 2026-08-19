@@ -38,10 +38,10 @@ Maintain a running log — `compatibility-log.md` in the repo root — as verifi
 
 ```
 ## [Library] [version] + [Library] [version]
-Date checked: 
+Date checked:
 Source: [official doc URL]
-Finding: 
-Action taken: 
+Finding:
+Action taken:
 ```
 
 Seed entry, from planning research already done for this project:
@@ -66,6 +66,7 @@ checking these floors first.
 ## 5. If verification reveals a real conflict
 
 Don't work around it silently or guess. Options, in order of preference:
+
 1. Pin to a version combination that's documented as compatible, even if it's not the newest available
 2. Apply the documented workaround/flag if one exists (e.g. a compatibility flag, a config option)
 3. If neither resolves it, stop and surface the conflict rather than building on top of an unresolved incompatibility — this affects sequencing in `master-plan.md` and may need a task reordered or a phase adjusted

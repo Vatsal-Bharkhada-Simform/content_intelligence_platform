@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
 import {
-  Terminal,
-  TerminalActions,
-  TerminalClearButton,
-  TerminalContent,
-  TerminalCopyButton,
-  TerminalHeader,
-  TerminalStatus,
-  TerminalTitle,
-} from "@/components/ai-elements/terminal";
-import { useCallback, useEffect, useState } from "react";
+    Terminal,
+    TerminalActions,
+    TerminalClearButton,
+    TerminalContent,
+    TerminalCopyButton,
+    TerminalHeader,
+    TerminalStatus,
+    TerminalTitle,
+} from '@/components/ai-elements/terminal'
+import { useCallback, useEffect, useState } from 'react'
 
 const handleTerminalCopy = () => {
-  console.log("Copied!");
-};
+    console.log('Copied!')
+}
 
 const ansiOutput = `\u001B[32m✓\u001B[0m Compiled successfully in 1.2s
 
@@ -31,52 +31,47 @@ const ansiOutput = `\u001B[32m✓\u001B[0m Compiled successfully in 1.2s
 
 \u001B[32m✓\u001B[0m Build completed successfully!
 \u001B[90mTotal time: 3.45s\u001B[0m
-`;
+`
 
 const Example = () => {
-  const [output, setOutput] = useState("");
-  const [isStreaming, setIsStreaming] = useState(true);
+    const [output, setOutput] = useState('')
+    const [isStreaming, setIsStreaming] = useState(true)
 
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < ansiOutput.length) {
-        setOutput(ansiOutput.slice(0, index + 10));
-        index += 10;
-      } else {
-        setIsStreaming(false);
-        clearInterval(interval);
-      }
-    }, 20);
+    useEffect(() => {
+        let index = 0
+        const interval = setInterval(() => {
+            if (index < ansiOutput.length) {
+                setOutput(ansiOutput.slice(0, index + 10))
+                index += 10
+            } else {
+                setIsStreaming(false)
+                clearInterval(interval)
+            }
+        }, 20)
 
-    return () => clearInterval(interval);
-  }, []);
+        return () => clearInterval(interval)
+    }, [])
 
-  const handleClear = useCallback(() => {
-    setOutput("");
-    setIsStreaming(false);
-  }, []);
+    const handleClear = useCallback(() => {
+        setOutput('')
+        setIsStreaming(false)
+    }, [])
 
-  return (
-    <Terminal
-      autoScroll={true}
-      isStreaming={isStreaming}
-      onClear={handleClear}
-      output={output}
-    >
-      <TerminalHeader>
-        <TerminalTitle>Build Output</TerminalTitle>
-        <div className="flex items-center gap-1">
-          <TerminalStatus />
-          <TerminalActions>
-            <TerminalCopyButton onCopy={handleTerminalCopy} />
-            <TerminalClearButton />
-          </TerminalActions>
-        </div>
-      </TerminalHeader>
-      <TerminalContent />
-    </Terminal>
-  );
-};
+    return (
+        <Terminal autoScroll={true} isStreaming={isStreaming} onClear={handleClear} output={output}>
+            <TerminalHeader>
+                <TerminalTitle>Build Output</TerminalTitle>
+                <div className="flex items-center gap-1">
+                    <TerminalStatus />
+                    <TerminalActions>
+                        <TerminalCopyButton onCopy={handleTerminalCopy} />
+                        <TerminalClearButton />
+                    </TerminalActions>
+                </div>
+            </TerminalHeader>
+            <TerminalContent />
+        </Terminal>
+    )
+}
 
-export default Example;
+export default Example

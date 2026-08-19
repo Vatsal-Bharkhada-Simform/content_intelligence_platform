@@ -3,6 +3,7 @@
 Running log of version-compatibility findings per the Agent Verification Protocol.
 
 ## Payload CMS + Next.js 16
+
 Date checked: 2026-08-19
 Source: https://payloadcms.com/docs/getting-started/installation
 Finding: Payload's supported Next.js 16 range is 16.2.6+ only — 15.5 through

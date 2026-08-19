@@ -1,34 +1,41 @@
 {
-  "name": "content_intelligence_platform",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@payloadcms/db-postgres": "^3.88.0",
-    "@payloadcms/next": "^3.88.0",
-    "@payloadcms/richtext-lexical": "^3.88.0",
-    "@payloadcms/ui": "^3.88.0",
-    "graphql": "^17.0.2",
-    "next": "16.3.1",
-    "payload": "^3.88.0",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "sharp": "^0.35.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  },
-  "packageManager": "pnpm@11.17.0"
+    "name": "content_intelligence_platform",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "@payloadcms/db-postgres": "^3.88.0",
+        "@payloadcms/next": "^3.88.0",
+        "@payloadcms/richtext-lexical": "^3.88.0",
+        "@payloadcms/ui": "^3.88.0",
+        "graphql": "^17.0.2",
+        "next": "16.3.1",
+        "payload": "^3.88.0",
+        "react": "19.2.8",
+        "react-dom": "19.2.8",
+        "sharp": "^0.35.3"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.3.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.3.0",
+        "prettier": "3.9.6",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    },
+    "packageManager": "pnpm@11.17.0",
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    }
 }

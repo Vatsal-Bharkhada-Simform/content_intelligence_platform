@@ -56,17 +56,17 @@ See `scripts/persona-command.tsx` for this example.
 
 The root component that renders the animated AI visual.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `state` | `unknown` | - | The current state of the AI persona. Controls which animation is displayed. |
-| `variant` | `unknown` | - | The visual style variant to display. |
-| `className` | `string` | - | Additional CSS classes to apply to the component. |
-| `onLoad` | `RiveParameters[` | - | Callback fired when the Rive file starts loading. |
-| `onLoadError` | `RiveParameters[` | - | Callback fired if the Rive file fails to load. |
-| `onReady` | `() => void` | - | Callback fired when the Rive animation is ready to play. |
-| `onPause` | `RiveParameters[` | - | Callback fired when the animation is paused. |
-| `onPlay` | `RiveParameters[` | - | Callback fired when the animation starts playing. |
-| `onStop` | `RiveParameters[` | - | Callback fired when the animation is stopped. |
+| Prop          | Type              | Default | Description                                                                 |
+| ------------- | ----------------- | ------- | --------------------------------------------------------------------------- |
+| `state`       | `unknown`         | -       | The current state of the AI persona. Controls which animation is displayed. |
+| `variant`     | `unknown`         | -       | The visual style variant to display.                                        |
+| `className`   | `string`          | -       | Additional CSS classes to apply to the component.                           |
+| `onLoad`      | `RiveParameters[` | -       | Callback fired when the Rive file starts loading.                           |
+| `onLoadError` | `RiveParameters[` | -       | Callback fired if the Rive file fails to load.                              |
+| `onReady`     | `() => void`      | -       | Callback fired when the Rive animation is ready to play.                    |
+| `onPause`     | `RiveParameters[` | -       | Callback fired when the animation is paused.                                |
+| `onPlay`      | `RiveParameters[` | -       | Callback fired when the animation starts playing.                           |
+| `onStop`      | `RiveParameters[` | -       | Callback fired when the animation is stopped.                               |
 
 ## States
 
@@ -91,76 +91,76 @@ If you still experience crashes (for example, when rendering many Persona instan
 ### Basic Usage
 
 ```tsx
-import { Persona } from "@repo/elements/persona";
+import { Persona } from '@repo/elements/persona'
 
 export default function App() {
-  return <Persona state="listening" variant="opal" />;
+    return <Persona state="listening" variant="opal" />
 }
 ```
 
 ### With State Management
 
 ```tsx
-import { Persona } from "@repo/elements/persona";
-import { useState } from "react";
+import { Persona } from '@repo/elements/persona'
+import { useState } from 'react'
 
 export default function App() {
-  const [state, setState] = useState<
-    "idle" | "listening" | "thinking" | "speaking" | "asleep"
-  >("idle");
+    const [state, setState] = useState<'idle' | 'listening' | 'thinking' | 'speaking' | 'asleep'>(
+        'idle',
+    )
 
-  const startListening = () => setState("listening");
-  const startThinking = () => setState("thinking");
-  const startSpeaking = () => setState("speaking");
-  const reset = () => setState("idle");
+    const startListening = () => setState('listening')
+    const startThinking = () => setState('thinking')
+    const startSpeaking = () => setState('speaking')
+    const reset = () => setState('idle')
 
-  return (
-    <div>
-      <Persona state={state} variant="opal" className="size-32" />
-      <div>
-        <button onClick={startListening}>Listen</button>
-        <button onClick={startThinking}>Think</button>
-        <button onClick={startSpeaking}>Speak</button>
-        <button onClick={reset}>Reset</button>
-      </div>
-    </div>
-  );
+    return (
+        <div>
+            <Persona state={state} variant="opal" className="size-32" />
+            <div>
+                <button onClick={startListening}>Listen</button>
+                <button onClick={startThinking}>Think</button>
+                <button onClick={startSpeaking}>Speak</button>
+                <button onClick={reset}>Reset</button>
+            </div>
+        </div>
+    )
 }
 ```
 
 ### With Custom Styling
 
 ```tsx
-import { Persona } from "@repo/elements/persona";
+import { Persona } from '@repo/elements/persona'
 
 export default function App() {
-  return (
-    <Persona
-      state="thinking"
-      variant="halo"
-      className="size-64 rounded-full border border-border"
-    />
-  );
+    return (
+        <Persona
+            state="thinking"
+            variant="halo"
+            className="size-64 rounded-full border border-border"
+        />
+    )
 }
 ```
 
 ### With Lifecycle Callbacks
 
 ```tsx
-import { Persona } from "@repo/elements/persona";
+import { Persona } from '@repo/elements/persona'
 
 export default function App() {
-  return (
-    <Persona
-      state="listening"
-      variant="glint"
-      onReady={() => console.log("Animation ready")}
-      onLoad={() => console.log("Starting to load")}
-      onLoadError={(error) => console.error("Failed to load:", error)}
-      onPlay={() => console.log("Animation playing")}
-      onPause={() => console.log("Animation paused")}
-      onStop={() => console.log("Animation stopped")}
-    />
-  );
+    return (
+        <Persona
+            state="listening"
+            variant="glint"
+            onReady={() => console.log('Animation ready')}
+            onLoad={() => console.log('Starting to load')}
+            onLoadError={(error) => console.error('Failed to load:', error)}
+            onPlay={() => console.log('Animation playing')}
+            onPause={() => console.log('Animation paused')}
+            onStop={() => console.log('Animation stopped')}
+        />
+    )
 }
 ```
